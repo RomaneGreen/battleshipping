@@ -15,11 +15,11 @@ gulp.task('default', () =>
         .pipe(gulp.dest('dist/images'))
 );
 
-gulp.task('sass', function () {
-    return gulp.src('./src/**/*.scss')
+gulp.task('sass',  () => 
+     gulp.src('./src/**/*.scss')
       .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('dist'));
-  });
+      .pipe(gulp.dest('dist'))
+  );
    
   gulp.task('sass:watch', function () {
     gulp.watch('./src/**/*.scss', ['sass']);
