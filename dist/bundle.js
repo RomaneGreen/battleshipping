@@ -76,7 +76,50 @@
 "use strict";
 
 
-console.log('this works');
+alert('this works');
+
+var shipFactory = function shipFactory(length) {
+
+  var shiplength = function shiplength() {
+    return console.log(length);
+  };
+  var hit = function hit() {
+    return console.log(length - 1);
+  };
+  var isSunk = function isSunk() {
+    if (length - 1 === 0) {
+      console.log('Your ship has sunk');
+    } else {
+      console.log("keep fiting");
+    }
+  };
+  return { shiplength: shiplength, hit: hit, isSunk: isSunk };
+};
+
+var jeff = shipFactory(1);
+
+jeff.shiplength();
+jeff.hit();
+jeff.isSunk();
+
+var gameBoard = function gameBoard() {
+  var placeShip = function placeShip() {
+    return console.log("coordinates");
+  };
+  var recieveAttack = function recieveAttack() {
+    return console.log("attacked");
+  };
+  var allShipsSunk = function allShipsSunk() {
+    return console.log("sunk");
+  };
+
+  return { placeShip: placeShip, recieveAttack: recieveAttack, allShipsSunk: allShipsSunk };
+};
+
+var game = gameBoard();
+game.placeShip();
+
+console.log(document.domain);
 
 /***/ })
 /******/ ]);

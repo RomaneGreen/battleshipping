@@ -9,7 +9,7 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', () =>
+gulp.task('imagemins', () =>
     gulp.src('src/img/*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/images'))
@@ -23,4 +23,9 @@ gulp.task('sass',  () =>
    
   gulp.task('sass:watch', function () {
     gulp.watch('./src/**/*.scss', ['sass']);
+  });
+
+  gulp.task("default", ["sass", "imagemins", "minify-css"], function() {
+    
+    
   });
