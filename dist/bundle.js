@@ -76,50 +76,80 @@
 "use strict";
 
 
-alert('this works');
+//  const shipFactory = (length) => {
 
-var shipFactory = function shipFactory(length) {
+//     const shiplength = () => console.log(length);
+//     const hit = () => console.log(length -1);
+//     const isSunk = () => {
+//         if((length -1) === 0){
+//             console.log('Your ship has sunk');
+//         }else{
+//             console.log("keep fiting");
+//         }
+//     }
+//     return { shiplength, hit, isSunk };
+//   };
 
-  var shiplength = function shiplength() {
-    return console.log(length);
-  };
-  var hit = function hit() {
-    return console.log(length - 1);
-  };
-  var isSunk = function isSunk() {
-    if (length - 1 === 0) {
-      console.log('Your ship has sunk');
-    } else {
-      console.log("keep fiting");
+//   const jeff = shipFactory(1);
+
+//   jeff.shiplength(); 
+//   jeff.hit();
+//   jeff.isSunk();
+
+
+//   const gameBoard = () => {
+//     const placeShip = () => console.log("coordinates");
+//     const recieveAttack = () => console.log("attacked");
+//     const allShipsSunk = () => console.log("sunk");
+
+
+//     return { placeShip, recieveAttack, allShipsSunk };
+//   }
+
+//   const game = gameBoard()
+//   game.placeShip();
+var pickShips = function pickShips() {
+    var patrolBoat = prompt('Enter Coordinate for your patrol boat');
+    var submarine = prompt('Enter Coordinate for your submarine');
+    var battleship = prompt('Enter Coordinate for your battleship');
+    // console.log(`${patrolBoat}+${submarine}+${battleship}`);
+
+    var done = document.getElementsByClassName(patrolBoat, submarine);
+    console.log(done);
+};
+pickShips();
+
+var x = document.getElementsByClassName("a1");
+var i = void 0;
+for (i = 0; i < x.length; i++) {
+    x[i].innerHTML = "X";
+}
+
+var enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
+var attemps = [];
+var pickCoordinate = function pickCoordinate() {
+    document.getElementById('es').addEventListener('click', function () {
+        var attackEnemy = document.getElementById("ei").value;
+        if (enemyShips.includes(attackEnemy)) {
+            alert('Enemy ship hit!');
+            document.getElementById(attackEnemy).innerHTML = "X";
+        } else {
+            alert('Miss');
+            document.getElementById(attackEnemy).innerHTML = "M";
+        }
+    });
+};
+
+pickCoordinate();
+
+var YouWon = function YouWon() {
+    if (document.getElementById('a1').innerHTML === 'X' && document.getElementById('d2').innerHTML === 'X' && document.getElementById('d3').innerHTML === 'X' && document.getElementById('b5').innerHTML === 'X' && document.getElementById('c5').innerHTML === 'X' && document.getElementById('d5').innerHTML === 'X') {
+        alert("Conguratulations! You have won!");
+        window.reload();
     }
-  };
-  return { shiplength: shiplength, hit: hit, isSunk: isSunk };
 };
 
-var jeff = shipFactory(1);
-
-jeff.shiplength();
-jeff.hit();
-jeff.isSunk();
-
-var gameBoard = function gameBoard() {
-  var placeShip = function placeShip() {
-    return console.log("coordinates");
-  };
-  var recieveAttack = function recieveAttack() {
-    return console.log("attacked");
-  };
-  var allShipsSunk = function allShipsSunk() {
-    return console.log("sunk");
-  };
-
-  return { placeShip: placeShip, recieveAttack: recieveAttack, allShipsSunk: allShipsSunk };
-};
-
-var game = gameBoard();
-game.placeShip();
-
-console.log(document.domain);
+YouWon();
 
 /***/ })
 /******/ ]);
