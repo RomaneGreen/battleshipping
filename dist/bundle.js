@@ -76,6 +76,12 @@
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.sum = sum;
+
+
 //  const shipFactory = (length) => {
 
 //     const shiplength = () => console.log(length);
@@ -108,16 +114,17 @@
 
 //   const game = gameBoard()
 //   game.placeShip();
-var pickShips = function pickShips() {
-    var patrolBoat = prompt('Enter Coordinate for your patrol boat');
-    var submarine = prompt('Enter Coordinate for your submarine');
-    var battleship = prompt('Enter Coordinate for your battleship');
-    // console.log(`${patrolBoat}+${submarine}+${battleship}`);
+// const pickShips = () => {
+//  let patrolBoat = prompt('Enter Coordinate for your patrol boat');
+//  let submarine = prompt('Enter Coordinate for your submarine');
+//  let battleship = prompt('Enter Coordinate for your battleship');
+// // console.log(`${patrolBoat}+${submarine}+${battleship}`);
 
-    var done = document.getElementsByClassName(patrolBoat, submarine);
-    console.log(done);
-};
-pickShips();
+// const done =document.getElementsByClassName(patrolBoat,submarine);
+// console.log(done);
+
+// }
+// pickShips();
 
 var x = document.getElementsByClassName("a1");
 var i = void 0;
@@ -125,14 +132,26 @@ for (i = 0; i < x.length; i++) {
     x[i].innerHTML = "X";
 }
 
-var enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
 var attemps = [];
+var YouWon = function YouWon() {
+    if (attemps.length === 6) {
+        alert('hi');
+    }
+};
+
+var enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
+
 var pickCoordinate = function pickCoordinate() {
-    document.getElementById('es').addEventListener('click', function () {
+
+    var es = document.getElementById('es');
+    es.addEventListener('click', function () {
         var attackEnemy = document.getElementById("ei").value;
         if (enemyShips.includes(attackEnemy)) {
             alert('Enemy ship hit!');
             document.getElementById(attackEnemy).innerHTML = "X";
+            attemps.push("1");
+            console.log(attemps);
+            YouWon();
         } else {
             alert('Miss');
             document.getElementById(attackEnemy).innerHTML = "M";
@@ -142,14 +161,11 @@ var pickCoordinate = function pickCoordinate() {
 
 pickCoordinate();
 
-var YouWon = function YouWon() {
-    if (document.getElementById('a1').innerHTML === 'X' && document.getElementById('d2').innerHTML === 'X' && document.getElementById('d3').innerHTML === 'X' && document.getElementById('b5').innerHTML === 'X' && document.getElementById('c5').innerHTML === 'X' && document.getElementById('d5').innerHTML === 'X') {
-        alert("Conguratulations! You have won!");
-        window.reload();
-    }
-};
-
 YouWon();
+
+function sum(a, b) {
+    return a + b;
+}
 
 /***/ })
 /******/ ]);

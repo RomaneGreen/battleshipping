@@ -51,18 +51,29 @@ for (i = 0; i < x.length; i++) {
     
 }
 
-
+let attemps = []
+const YouWon = () => {
+    if (attemps.length === 6){
+   alert('hi');
+    }
+    
+}
 
 
 
 const enemyShips = ["a1","d2","d3","b5","c5","d5"];
-const attemps = []
+
 const pickCoordinate = () => {
-    document.getElementById('es').addEventListener('click',function(){
+  
+    let es =  document.getElementById('es');
+     es.addEventListener('click',function(){
         let attackEnemy = document.getElementById("ei").value;
          if (enemyShips.includes(attackEnemy)){
              alert('Enemy ship hit!');
              document.getElementById(attackEnemy).innerHTML = "X";
+                attemps.push("1");
+                console.log(attemps);
+                YouWon();
          }else{
              alert('Miss');
              document.getElementById(attackEnemy).innerHTML = "M";
@@ -73,24 +84,11 @@ const pickCoordinate = () => {
 
 pickCoordinate();
 
-
- const YouWon = () => {
-     if (document.getElementById('a1').innerHTML === 'X'&&
-     document.getElementById('d2').innerHTML === 'X'&&
-     document.getElementById('d3').innerHTML === 'X'&&
-     document.getElementById('b5').innerHTML === 'X'&&
-     document.getElementById('c5').innerHTML === 'X'&&
-     document.getElementById('d5').innerHTML === 'X'
-    ){
-        alert("Conguratulations! You have won!")
-        window.reload();
-    }
- }    
-  
- YouWon();
+YouWon();
 
 
- function sum(a, b) {
+
+ export function sum(a, b) {
     return a + b;
   }
-  module.exports = sum;
+  
