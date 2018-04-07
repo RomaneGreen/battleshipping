@@ -32,17 +32,17 @@
 
 //   const game = gameBoard()
 //   game.placeShip();
-const pickShips = () => {
- let patrolBoat = prompt('Enter Coordinate for your patrol boat');
- let submarine = prompt('Enter Coordinate for your submarine');
- let battleship = prompt('Enter Coordinate for your battleship');
-// console.log(`${patrolBoat}+${submarine}+${battleship}`);
+// const pickShips = () => {
+//  let patrolBoat = prompt('Enter Coordinate for your patrol boat');
+//  let submarine = prompt('Enter Coordinate for your submarine');
+//  let battleship = prompt('Enter Coordinate for your battleship');
+// // console.log(`${patrolBoat}+${submarine}+${battleship}`);
 
-const done =document.getElementsByClassName(patrolBoat,submarine);
-console.log(done);
+// const done =document.getElementsByClassName(patrolBoat,submarine);
+// console.log(done);
 
-}
-pickShips();
+// }
+// pickShips();
 
 let x = document.getElementsByClassName("a1");
 let i;
@@ -85,6 +85,12 @@ pickCoordinate();
         alert("Conguratulations! You have won!")
         window.reload();
     }
- }
-
+ }    
+  
  YouWon();
+
+
+ function sum(a, b) {
+    return a + b;
+  }
+  module.exports = sum;
