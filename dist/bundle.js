@@ -76,96 +76,83 @@
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.sum = sum;
+alert("Select one square for a patrol boat,two squares for a submarine and then select three squares for a Battleship");
 
-
-//  const shipFactory = (length) => {
-
-//     const shiplength = () => console.log(length);
-//     const hit = () => console.log(length -1);
-//     const isSunk = () => {
-//         if((length -1) === 0){
-//             console.log('Your ship has sunk');
-//         }else{
-//             console.log("keep fiting");
-//         }
-//     }
-//     return { shiplength, hit, isSunk };
-//   };
-
-//   const jeff = shipFactory(1);
-
-//   jeff.shiplength(); 
-//   jeff.hit();
-//   jeff.isSunk();
-
-
-//   const gameBoard = () => {
-//     const placeShip = () => console.log("coordinates");
-//     const recieveAttack = () => console.log("attacked");
-//     const allShipsSunk = () => console.log("sunk");
-
-
-//     return { placeShip, recieveAttack, allShipsSunk };
-//   }
-
-//   const game = gameBoard()
-//   game.placeShip();
-// const pickShips = () => {
-//  let patrolBoat = prompt('Enter Coordinate for your patrol boat');
-//  let submarine = prompt('Enter Coordinate for your submarine');
-//  let battleship = prompt('Enter Coordinate for your battleship');
-// // console.log(`${patrolBoat}+${submarine}+${battleship}`);
-
-// const done =document.getElementsByClassName(patrolBoat,submarine);
-// console.log(done);
-
-// }
-// pickShips();
-
-var x = document.getElementsByClassName("a1");
-var i = void 0;
-for (i = 0; i < x.length; i++) {
-    x[i].innerHTML = "X";
-}
-
-var attemps = [];
-var YouWon = function YouWon() {
-    if (attemps.length === 6) {
-        alert('hi');
-    }
-};
-
+var es = document.getElementById('es');
 var enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
+var addPatrolBoat = document.getElementById('pp');
+var patrolBoat = document.getElementById('pb');
+var selection = [];
+var enemyHits = [];
+var yourHits = [];
 
 var pickCoordinate = function pickCoordinate() {
 
-    var es = document.getElementById('es');
-    es.addEventListener('click', function () {
-        var attackEnemy = document.getElementById("ei").value;
-        if (enemyShips.includes(attackEnemy)) {
-            alert('Enemy ship hit!');
-            document.getElementById(attackEnemy).innerHTML = "X";
-            attemps.push("1");
-            console.log(attemps);
-            YouWon();
-        } else {
-            alert('Miss');
-            document.getElementById(attackEnemy).innerHTML = "M";
-        }
-    });
+  es.addEventListener('click', function () {
+    var attackEnemy = document.getElementById("ei").value;
+    if (enemyShips.includes(attackEnemy)) {
+      alert('Enemy ship hit!');
+      yourHits.push('1');
+      weHaveAWinner();
+
+      document.getElementById(attackEnemy).innerHTML = "X";
+    } else {
+      alert('Miss');
+
+      document.getElementById(attackEnemy).innerHTML = "M";
+      if (randNum() >= 5) {
+
+        alert("Enemy Attacked and hit!");
+        enemyHits.push(randNum());
+        console.log(enemyHits.length);
+        weHaveAWinner();
+      } else {
+        alert("Enemy Attacked and Missed");
+      }
+    }
+  });
 };
 
 pickCoordinate();
 
-YouWon();
+var randNum = function randNum() {
 
-function sum(a, b) {
-    return a + b;
-}
+  return Math.floor(Math.random() * 10);
+};
+
+var goingtowork = function goingtowork() {
+  td = document.getElementsByTagName('td');
+  for (var i = 0; i < 25; i++) {
+
+    td[i].addEventListener('click', function () {
+      this.innerHTML = 'X';
+      selection.push(this.innerHTML);
+      console.log(selection.length);
+      donePicking();
+    });
+  }
+};
+
+goingtowork();
+
+var donePicking = function donePicking() {
+  if (selection.length >= 6) {
+    alert("Now enter plots to fire at enemy ships!");
+  }
+};
+
+var weHaveAWinner = function weHaveAWinner() {
+
+  if (enemyHits.length === 10) {
+
+    alert("Game over! Enemy Sunk all your ships!");
+  } else if (yourHits.length === 6) {
+
+    alert('Congrats! You have sunk all enemy ships');
+  }
+};
+
+weHaveAWinner();
 
 /***/ })
 /******/ ]);

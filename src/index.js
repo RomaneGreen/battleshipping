@@ -1,82 +1,42 @@
+alert("Select one square for a patrol boat,two squares for a submarine and then select three squares for a Battleship")
 
 
-//  const shipFactory = (length) => {
-    
-//     const shiplength = () => console.log(length);
-//     const hit = () => console.log(length -1);
-//     const isSunk = () => {
-//         if((length -1) === 0){
-//             console.log('Your ship has sunk');
-//         }else{
-//             console.log("keep fiting");
-//         }
-//     }
-//     return { shiplength, hit, isSunk };
-//   };
-  
-//   const jeff = shipFactory(1);
-
-//   jeff.shiplength(); 
-//   jeff.hit();
-//   jeff.isSunk();
-
-
-//   const gameBoard = () => {
-//     const placeShip = () => console.log("coordinates");
-//     const recieveAttack = () => console.log("attacked");
-//     const allShipsSunk = () => console.log("sunk");
-
-
-//     return { placeShip, recieveAttack, allShipsSunk };
-//   }
-
-//   const game = gameBoard()
-//   game.placeShip();
-// const pickShips = () => {
-//  let patrolBoat = prompt('Enter Coordinate for your patrol boat');
-//  let submarine = prompt('Enter Coordinate for your submarine');
-//  let battleship = prompt('Enter Coordinate for your battleship');
-// // console.log(`${patrolBoat}+${submarine}+${battleship}`);
-
-// const done =document.getElementsByClassName(patrolBoat,submarine);
-// console.log(done);
-
-// }
-// pickShips();
-
-let x = document.getElementsByClassName("a1");
-let i;
-for (i = 0; i < x.length; i++) {
-    x[i].innerHTML= "X";
-    
-}
-
-let attemps = []
-const YouWon = () => {
-    if (attemps.length === 6){
-   alert('hi');
-    }
-    
-}
-
-
-
+let es =  document.getElementById('es');
 const enemyShips = ["a1","d2","d3","b5","c5","d5"];
+ let addPatrolBoat = document.getElementById('pp');
+let patrolBoat = document.getElementById('pb');
+let selection = [];
+let enemyHits = [];
+let yourHits = [];
+
 
 const pickCoordinate = () => {
   
-    let es =  document.getElementById('es');
+    
      es.addEventListener('click',function(){
-        let attackEnemy = document.getElementById("ei").value;
+         let attackEnemy = document.getElementById("ei").value;
          if (enemyShips.includes(attackEnemy)){
              alert('Enemy ship hit!');
+             yourHits.push('1');
+             weHaveAWinner();
+             
              document.getElementById(attackEnemy).innerHTML = "X";
-                attemps.push("1");
-                console.log(attemps);
-                YouWon();
+
+               
+                
          }else{
              alert('Miss');
+             
              document.getElementById(attackEnemy).innerHTML = "M";
+             if(randNum() >= 5) {
+             
+             alert("Enemy Attacked and hit!");
+             enemyHits.push(randNum());
+             console.log(enemyHits.length);
+             weHaveAWinner();
+            }else{
+            alert("Enemy Attacked and Missed")
+            }
          }
      
   })
@@ -84,11 +44,55 @@ const pickCoordinate = () => {
 
 pickCoordinate();
 
-YouWon();
 
 
 
- export function sum(a, b) {
-    return a + b;
-  }
-  
+const randNum = () => {
+
+return Math.floor(Math.random()*10);
+
+}
+
+
+
+
+
+
+const goingtowork = () => {
+td = document.getElementsByTagName('td');
+for (var i = 0; i < 25; i++) {
+     
+     
+     
+    td[i].addEventListener('click',function(){
+    this.innerHTML = 'X';
+    selection.push(this.innerHTML);
+    console.log(selection.length);
+   donePicking();
+    })
+}
+}
+
+goingtowork();
+
+
+
+const donePicking = () => {
+ if(selection.length >= 6){
+    alert("Now enter plots to fire at enemy ships!");
+}
+}
+
+
+ const weHaveAWinner = () =>{
+
+if(enemyHits.length === 10){
+
+alert("Game over! Enemy Sunk all your ships!")
+}else if (yourHits.length === 6){
+
+ alert('Congrats! You have sunk all enemy ships');
+}
+}
+
+weHaveAWinner();
