@@ -1,10 +1,10 @@
 //Make sure user starts game on right path
-alert("Select one square for a patrol boat,two squares for a submarine and then select three squares for a Battleship"
+alert("Select ONE square for a patrol boat,TWO squares for a submarine and then select THREE squares for a Battleship"
 );
 
 //Arrays are being used as limit markers
 let es = document.getElementById("es");
-const enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
+export const enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
 
 /*
  *let addPatrolBoat = document.getElementById("pp");
@@ -48,19 +48,20 @@ const randNum = () => {
 };
 
 //allows user to select pieces on board
-const goingtowork = () => {
-    let td = document.getElementsByTagName("td");
-    for (var i = 0; i < 25; i++) {
-        td[i].addEventListener("click", function () {
-            this.innerHTML = "X";
-            selection.push(this.innerHTML);
-            donePicking();
-        });
-    }
+window.onload = function () {
+    const goingtowork = () => {
+        let td = document.getElementsByTagName("td");
+        for (var i = 0; i < 25; i++) {
+            td[i].addEventListener("click", function () {
+                this.innerHTML = "X";
+                selection.push(this.innerHTML);
+                donePicking();
+            });
+        }
+    };
+
+    goingtowork();
 };
-
-goingtowork();
-
 //initates fire at cpu stage after picking ships
 const donePicking = () => {
     if (selection.length >= 6) {

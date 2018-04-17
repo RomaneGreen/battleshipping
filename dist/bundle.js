@@ -77,13 +77,16 @@
 
 
 //Make sure user starts game on right path
-alert("Select one square for a patrol boat,two squares for a submarine and then select three squares for a Battleship");
+alert("Select ONE square for a patrol boat,TWO squares for a submarine and then select THREE squares for a Battleship");
 
 //Arrays are being used as limit markers
 var es = document.getElementById("es");
 var enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
-var addPatrolBoat = document.getElementById("pp");
-var patrolBoat = document.getElementById("pb");
+
+/*
+ *let addPatrolBoat = document.getElementById("pp");
+ *let patrolBoat = document.getElementById("pb");
+ */
 var selection = [];
 var enemyHits = [];
 var yourHits = [];
