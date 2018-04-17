@@ -10,7 +10,7 @@ let enemyHits = [];
 let yourHits = [];
 
 
-const pickCoordinate = () => {
+ const pickCoordinate = () => {
   
     
      es.addEventListener('click',function(){
@@ -59,7 +59,7 @@ return Math.floor(Math.random()*10);
 
 
 const goingtowork = () => {
-td = document.getElementsByTagName('td');
+let td = document.getElementsByTagName('td');
 for (var i = 0; i < 25; i++) {
      
      

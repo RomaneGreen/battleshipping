@@ -121,7 +121,7 @@ var randNum = function randNum() {
 };
 
 var goingtowork = function goingtowork() {
-  td = document.getElementsByTagName('td');
+  var td = document.getElementsByTagName('td');
   for (var i = 0; i < 25; i++) {
 
     td[i].addEventListener('click', function () {
