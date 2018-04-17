@@ -1,4 +1,5 @@
-// import {randNum} from '../index';
+  import {randNum} from '../index';
+  import {pickCoordinate} from '../index';
 
 describe('index.js',() => {
 test('setup correctly', () => {
@@ -6,3 +7,10 @@ test('setup correctly', () => {
 })
 
 });
+
+describe('randNum()',() => {
+  test('return integer', () => {
+    expect(randNum()).toBe(true);
+  })
+  
+  });
