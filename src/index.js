@@ -1,16 +1,18 @@
 //Make sure user starts game on right path
-alert( "Select one square for a patrol boat,two squares for a submarine and then select three squares for a Battleship"
+alert("Select one square for a patrol boat,two squares for a submarine and then select three squares for a Battleship"
 );
 
 //Arrays are being used as limit markers
 let es = document.getElementById("es");
 const enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
-let addPatrolBoat = document.getElementById("pp");
-let patrolBoat = document.getElementById("pb");
+
+/*
+ *let addPatrolBoat = document.getElementById("pp");
+ *let patrolBoat = document.getElementById("pb");
+ */
 let selection = [];
 let enemyHits = [];
 let yourHits = [];
-
 
 //onload added for jest,allows user to pick coordinate
 window.onload = function () {
@@ -40,12 +42,10 @@ window.onload = function () {
     pickCoordinate();
 };
 
-
 //random number for cpu hit or miss
 const randNum = () => {
     return Math.floor(Math.random() * 10);
 };
-
 
 //allows user to select pieces on board
 const goingtowork = () => {
@@ -61,14 +61,12 @@ const goingtowork = () => {
 
 goingtowork();
 
-
 //initates fire at cpu stage after picking ships
 const donePicking = () => {
     if (selection.length >= 6) {
         alert("Now enter plots to fire at enemy ships!");
     }
 };
-
 
 //counts values pushed to array to determine winner
 const weHaveAWinner = () => {
