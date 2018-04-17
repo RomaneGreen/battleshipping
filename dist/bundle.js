@@ -76,12 +76,15 @@
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 //Make sure user starts game on right path
 alert("Select ONE square for a patrol boat,TWO squares for a submarine and then select THREE squares for a Battleship");
 
 //Arrays are being used as limit markers
 var es = document.getElementById("es");
-var enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
+var enemyShips = exports.enemyShips = ["a1", "d2", "d3", "b5", "c5", "d5"];
 
 /*
  *let addPatrolBoat = document.getElementById("pp");
@@ -92,32 +95,32 @@ var enemyHits = [];
 var yourHits = [];
 
 //onload added for jest,allows user to pick coordinate
-window.onload = function () {
-    var pickCoordinate = function pickCoordinate() {
-        es.addEventListener("click", function () {
-            var attackEnemy = document.getElementById("ei").value;
-            if (enemyShips.includes(attackEnemy)) {
-                alert("Enemy ship hit!");
-                yourHits.push("1");
+// window.onload = function () {
+var pickCoordinate = function pickCoordinate() {
+    es.addEventListener("click", function () {
+        var attackEnemy = document.getElementById("ei").value;
+        if (enemyShips.includes(attackEnemy)) {
+            alert("Enemy ship hit!");
+            yourHits.push("1");
+            weHaveAWinner();
+
+            document.getElementById(attackEnemy).innerHTML = "X";
+        } else {
+            alert("Miss");
+
+            document.getElementById(attackEnemy).innerHTML = "M";
+            if (randNum() >= 5) {
+                alert("Enemy Attacked and hit!");
+                enemyHits.push(randNum());
                 weHaveAWinner();
-
-                document.getElementById(attackEnemy).innerHTML = "X";
             } else {
-                alert("Miss");
-
-                document.getElementById(attackEnemy).innerHTML = "M";
-                if (randNum() >= 5) {
-                    alert("Enemy Attacked and hit!");
-                    enemyHits.push(randNum());
-                    weHaveAWinner();
-                } else {
-                    alert("Enemy Attacked and Missed");
-                }
+                alert("Enemy Attacked and Missed");
             }
-        });
-    };
-    pickCoordinate();
+        }
+    });
 };
+pickCoordinate();
+// };
 
 //random number for cpu hit or miss
 var randNum = function randNum() {
@@ -125,6 +128,7 @@ var randNum = function randNum() {
 };
 
 //allows user to select pieces on board
+// window.onload = function () {
 var goingtowork = function goingtowork() {
     var td = document.getElementsByTagName("td");
     for (var i = 0; i < 25; i++) {
@@ -137,7 +141,7 @@ var goingtowork = function goingtowork() {
 };
 
 goingtowork();
-
+// };
 //initates fire at cpu stage after picking ships
 var donePicking = function donePicking() {
     if (selection.length >= 6) {

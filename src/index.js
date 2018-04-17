@@ -15,7 +15,7 @@ let enemyHits = [];
 let yourHits = [];
 
 //onload added for jest,allows user to pick coordinate
-window.onload = function () {
+// window.onload = function () {
     const pickCoordinate = () => {
         es.addEventListener("click", function () {
             let attackEnemy = document.getElementById("ei").value;
@@ -40,7 +40,7 @@ window.onload = function () {
         });
     };
     pickCoordinate();
-};
+// };
 
 //random number for cpu hit or miss
 const randNum = () => {
@@ -48,7 +48,7 @@ const randNum = () => {
 };
 
 //allows user to select pieces on board
-window.onload = function () {
+// window.onload = function () {
     const goingtowork = () => {
         let td = document.getElementsByTagName("td");
         for (var i = 0; i < 25; i++) {
@@ -61,7 +61,7 @@ window.onload = function () {
     };
 
     goingtowork();
-};
+// };
 //initates fire at cpu stage after picking ships
 const donePicking = () => {
     if (selection.length >= 6) {

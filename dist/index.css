@@ -1,10 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
 * {
-  background: #fdfdfd;
+  background-color: #4d92a8;
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  color: white; }
 
-table, th, td {
+table,
+th,
+td {
   border: 2px solid black;
   border-collapse: collapse; }
 
@@ -45,3 +50,33 @@ p.inputtext {
   position: absolute;
   top: 2.5rem;
   left: 48rem; }
+
+h1 {
+  position: absolute;
+  top: -1rem;
+  left: 26rem;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  -webkit-animation-name: example;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 4s; }
+
+@keyframes example {
+  from {
+    color: black; }
+  to {
+    color: yellow; } }
+
+.form,
+.shipCoord,
+ul,
+li {
+  background-color: #8BC34A;
+  color: white; }
+
+.form {
+  margin-top: 12rem; }

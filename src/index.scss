@@ -1,10 +1,22 @@
-$primary-color: rgb(253, 253, 253);
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+$primary-color: #607D8B;
+$light-primary:#CFD8DC;
+$dark-primary: #455a64;
+$primary-text:#212121;
+$secondary-text:#757575;
+$texticons:#FFFFFF;
+$accent-color: #8BC34A;
+$divider-color:#BDBDBD;
+
 
 * {
-  background: $primary-color;
+  background-color: rgb(77, 146, 168);
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  color:white;
 }
 
 table,
@@ -12,6 +24,7 @@ th,
 td {
   border: 2px solid black;
   border-collapse: collapse;
+  
 }
 
 td {
@@ -56,4 +69,34 @@ p.inputtext {
   position: absolute;
   top: 2.5rem;
   left: 48rem;
+}
+
+h1{
+  position: absolute;
+  top: -1rem;
+  left:26rem;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+@keyframes example {
+  from {color: black;}
+  to {color: yellow;}
+}
+.form,
+.shipCoord,
+ul,
+li
+{
+  background-color: $accent-color;
+  color:white;
+}
+
+.form{
+  margin-top:12rem;
 }
